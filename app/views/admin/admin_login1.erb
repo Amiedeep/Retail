@@ -1,0 +1,47 @@
+<%= render partial: 'partials/header' %>
+<%= render partial: 'partials/menu_items' %>
+
+
+<center>
+  <div id="all">
+    <div id="main" style="margin-left: 0px">
+      <h1>Enter login Details</h1>
+
+      <%= form_tag("/admin_login", method: "post") do %>
+
+
+
+
+          <table border="0" style="margin-top: 30px" cellspacing="5">
+            <tr>
+              <div class="textbox" >
+                <%= email_field_tag 'email' %>
+              </div>
+            </tr>
+            <tr></tr>
+            <tr>
+              <div class="textbox">
+                <%= password_field_tag 'password' %>
+              </div>
+            </tr>
+            <tr>
+
+              <td></td>
+              <td>
+                <div class="submitstyle">
+                  <%= submit_tag 'login' %>
+                </div>
+            </tr>
+            <tr>
+          </table>
+      <% end %>
+    </div>
+  </div>
+</center>
+
+
+
+
+
+
+
