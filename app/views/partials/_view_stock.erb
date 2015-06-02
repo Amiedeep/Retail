@@ -1,0 +1,39 @@
+  <title>JSP Page</title>
+<script>
+    function go()
+    {
+        return confirm("ARE YOU SURE TO DELETE?");
+    }
+</script>
+<div id="all">
+          <div id="main" >
+            <center>
+              <h4 class="heading">STOCK LIST</h4>
+              <table border  class="CSSTableGenerator">
+                <tr>
+                  <td>STOCK_ID</td>
+                  <td>PRODUCT_NAME</td>
+                  <td>QUANTITY</td>
+                  <td>DATE</td>
+                  <td></td>
+                  <td></td>
+
+                </tr>
+                <% Stock.all.each do |stock| %>
+                    <tr>
+                      <% product = Product.where(product_id: stock.product_id).first %>
+                      <% if !product.nil? %>
+
+                          <td><%= stock.id %></td>
+                          <td><%=  product.Product_name %></td>
+                          <td><%= stock.quantity %></td>
+                          <td><%= stock.date_of_stockadd %></td>
+                          <td><a href="editquantity1<%= stock.stock_id %>">Edit</a></td>
+                          <td><a href="deletequantity1<%=stock.stock_id %>" onclick="return go()">delete</a></td>
+                      <%end%>
+                    </tr>
+                <%end%>
+              </table>
+              </center>
+          </div>
+</div>

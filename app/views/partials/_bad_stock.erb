@@ -1,0 +1,40 @@
+
+
+  <title>JSP Page</title>
+<div id="all">
+          <div id="main" >
+
+            <center>
+              <h class="heading">BADSTOCK DETAIL</h>
+              <%= form_tag("/bad_stock2?type='employee'", method: "post") do %>
+                <table border="0"  style="margin-top: 30px" cellspacing="7" >
+                  <tr>
+                    <td>STOCK ID</td>
+                    <td><select name="stockid" required class="textbox">
+                         <% Stock.all.each do |stock| %>
+                          <option value="<%= stock.id %>"><%= stock.id %></option>
+                      <%end%>
+                         </select></td>
+                          </tr>
+                          <tr>
+                            <td>QUANTITY</td>
+                            <td><input type="text" name ="quantity" required class="textbox"/></td>
+                          </tr>
+                          <tr>
+                            <td>SUPERVISER</td>
+                            <td><select name="superviser" class="textbox" required>
+                                 <% Admin.all.each do |admin| %>
+                                  <option value="<%= admin.username %>"><%= admin.username %></option>
+                                  <%end%>
+                                  </select>
+                            </td>
+                          </tr>
+                                  <tr>
+                                    <td></td>
+                                    <td><input type="submit" value="add" class="submitstyle"/></td>
+                                  </tr>
+                </table>
+              <%end%>
+            </center>
+          </div>
+</div>

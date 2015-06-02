@@ -1,0 +1,36 @@
+
+
+  <title>JSP Page</title>
+<script>
+    function go()
+    {
+        return confirm("ARE YOU SURE TO DELETE?");
+    }
+</script>
+<div id="all">
+          <div id="main" >
+            <center>
+              <h3 class="heading">EMPLOYEE LIST</h3>
+              <table border class="CSSTableGenerator">
+                <tr>
+                  <td>NAME</td>
+                  <td>EMAIL</td>
+                  <td>PHONE</td>
+                  <td>GENDER</td>
+                  <td>ADDRESS</td>
+                  <td></td>
+                </tr>
+                <% Employee.all.each do |employee| %>
+                    <tr>
+                      <td><%= employee.username %></td>
+                      <td><%= employee.email_id %></td>
+                      <td><%= employee.phone_no %></td>
+                      <td><%= employee.gender %></td>
+                      <td><%= employee.address %></td>
+                      <td><a href="deleteemp <%= employee.username %>" onclick="return go()">delete</a></td>
+                    </tr>
+                <% end %>
+              </table>
+            </center>
+          </div>
+</div>

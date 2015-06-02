@@ -1,0 +1,57 @@
+
+  <title>JSP Page</title>
+<script>
+    function go()
+    {
+        var select = document.getElementById("sel").value;
+        if(select === "MARRIED")
+        {
+            document.getElementById("anv").style.display="block"
+            document.getElementById("anv1").style.display="block"
+        }
+        else
+        {
+            document.getElementById("anv").style.display="none"
+            document.getElementById("anv1").style.display="none"
+        }
+    }
+</script>
+
+<div id="all">
+  <div id="main" >
+    <center>
+      <h class="heading">MEMBER DETAIL</h>
+      <%= form_tag("/add_member2?type='employee'", method: "post") do %>
+        <table border="0"  style="margin-top: 30px" cellspacing="8" >
+          <tr>
+            <td>NAME</td>
+            <td><input type="text" name="mname" class="textbox" required/></td>
+          </tr>
+          <tr>
+            <td>EMAIL ID</td>
+            <td><input type="text" name="email" class="textbox" required/></td>
+          </tr>
+          <tr>
+            <td>MOBILE NUMBER</td>
+            <td><input type="text" name="mno" class="textbox" required/></td>
+          </tr>
+          <tr>
+            <td>DATE OF BIRTH</td>
+            <td><input type="text" name="bdate" class="textbox"/></td>
+          </tr>
+          <tr>
+            <td>GENDER</td>
+            <td><input type="radio" name="gender" value="male"/> male</td>
+            <td><input type="radio" name="gender" value="female"/>female</td>
+          </tr>
+          <tr>
+            <td></td>
+            <td><input type="submit" value="SUBMIT" class="submitstyle"></td>
+          </tr>
+        </table>
+      <% end %>
+    </center>
+  </div>
+</div>
+</body>
+</html>

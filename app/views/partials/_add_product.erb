@@ -1,0 +1,70 @@
+
+
+  <title>products</title>
+  <script type="text/javascript">
+      function getdiscount()
+      {
+          var price = parseInt(document.getElementById("price").value);
+          var discount = parseInt(document.getElementById("discount").value);
+          var netprice;
+          if(price!==""&&discount!=="")
+          {
+              netprice = price-price*(discount/100);
+              document.getElementById("netprice").value = netprice;
+          }
+      }
+  </script>
+<div id="all">
+          <div id="main" >
+            <center>
+              <h3  class="heading">PRODUCT DETAIL</h3>
+              <%= form_tag("/add_product1?type='employee'", method: "post") do %>
+                <table border="0"  style="margin-top: 30px" cellspacing="7" >
+
+                  <tr>
+                    <td>PRODUCT_NAME</td>
+                    <td><input type="text" name="pro_nm" class="textbox" required/></td>
+                  </tr>
+                  <tr>
+                    <td>PRICE</td>
+                    <td><input type="text" name="price" id="price" class="textbox" required=""/></td>
+                  </tr>
+                  <tr>
+                    <td>DISCOUNT</td>
+                    <td><input type="text" name="discount" id="discount" onblur="getdiscount()" class="textbox" required/></td>
+                  </tr>
+                  <tr>
+                    <td>NET_PRICE</td>
+                    <td><input type="text" name="netprice" id="netprice" value="" class="textbox"/></td>
+                  </tr>
+                  <tr>
+                    <td>CATEGORY</td>
+                    <td><select name="category" class="textbox" required="">
+                      <% Category.all.each do |category| %>
+                          <option value="<%= category.category_name %>"><%= category.category_name %></option>
+                      <%end%>
+                    </select>
+                          </tr>
+                          <tr>
+                            <td>brands</td>
+                            <td><select name="brands" class="textbox">
+                                 <% Brand.all.each do |brand| %>
+                                  <option value="<%= brand.brand_name %>"><%= brand.brand_name %></option>
+                                  <%end%>
+                            </select>
+
+                              <tr>
+                                <td></td>
+                                <td><input type="SUBMIT" value ="submit" class="submitstyle"/></td>
+                              </tr>
+
+
+                </table>
+                  <input type="file" name="upload" value="Browse" class="submitstyle"/>
+                  <br>
+                  <br>
+                  <input type="submit" name="submit" value="submit" class="submitstyle"/>
+              <%end%>
+            </center>
+          </div>
+</div>

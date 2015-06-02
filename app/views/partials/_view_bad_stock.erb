@@ -1,0 +1,36 @@
+  <title>JSP Page</title>
+<script>
+    function go()
+    {
+        return confirm("ARE YOU SURE TO DELETE?");
+    }
+</script>
+<div id="all">
+          <div id="main" >
+            <center>
+              <h class="heading">BADSTOCK  LIST</h>
+
+
+              <table class="CSSTableGenerator">
+                <tr>
+                  <td>BAD_STOCK_ID</td>
+                  <td>STOCK_ID</td>
+                  <td>QUANTITY</td>
+                  <td>SUPERVISER</td>
+                  <td></td>
+                  <td></td>
+                </tr>
+                <% Badstock.all.each do |badstock| %>
+                    <tr>
+                      <td><%= badstock.id %></td>
+                      <td><%= badstock.stock_id %></td>
+                      <td><%= badstock.quantity %></td>
+                      <td><%= badstock.supervised_by %></td>
+                      <td><a href="editedbadstock <%= badstock.id %>">Edit</a></td>
+                      <td><a href="badstockdelete <%= badstock.id %>" onclick="return go()">delete</a></td>
+                    </tr>
+                    <% end %>
+                    </table>
+            </center>
+          </div>
+</div>

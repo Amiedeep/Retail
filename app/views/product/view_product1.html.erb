@@ -1,0 +1,37 @@
+
+<center>
+  <h3 class = "heading">PRODUCTS LIST</h3>
+  <div style=" overflow-x: auto;">
+    <table border  class="CSSTableGenerator" cellspacing="5px;" cellpadding="5px;">
+      <tr>
+        <td>PRODUCT_ID</td>
+        <td>PRODUCT_NAME</td>
+        <td>BARCODE</td>
+        <td>PRICE</td>
+        <td>DISCOUNT</td>
+        <td>NETPRICE</td>
+        <td>CATEGORY</td>
+        <td>BRAND</td>
+        <td></td>
+        <td></td>
+      </tr>
+         <% Product.where(category: @cat).each do |product| %>
+          <tr>
+            <td><%= product.id %></td>
+            <td><%= product.Product_name %></td>
+            <td><%= product.price %></td>
+            <td><%= product.discount %></td>
+            <td><%= product.netprice %></td>
+            <td><%= product.category %></td>
+            <td><%= product.brands %></td>
+            <td><%= image_tag "#{product.photo}", :size => "50x50" %></td>
+            <td><a href="edit_product1<%= product.product_id %>">Edit</a></td>
+            <td><a href="delete_product1.<%= product.product_id %>" onclick="return go()">delete</a></td>
+            <%end%>
+          </tr>
+    </table>
+  </div>
+
+
+</center>
+
