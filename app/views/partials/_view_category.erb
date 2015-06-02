@@ -1,0 +1,35 @@
+
+
+  <title>VIEW SECTION</title>
+<script>
+    function go()
+    {
+        return confirm("ARE YOU SURE TO DELETE?");
+    }
+</script>
+<div id="all">
+
+          <div id="main" >
+            <center>
+              <h3 class="heading">CATEGORIES LIST</h3>
+              <table border  class="CSSTableGenerator">
+                <tr>
+                  <td>CATEGORY NAME</td>
+                  <td>DESCRIPTION</td>
+                  <td>SECTION</td>
+                  <td></td>
+                  <td></td>
+                </tr>
+                <% Category.all.each do |category| %>
+                    <tr>
+                      <td><%= category.category_name %></td>
+                      <td><%= category.category_description%></td>
+                      <td><%= category.category_section%></td>
+                      <td><a href="editcategory1<%= category.category_name%>">Edit</a></td>
+                      <td><a href="Deletecategory1<%= category.category_name%>" onclick="return go()">delete</a></td>
+                    </tr>
+                <%end%>
+              </table>
+            </center>
+          </div>
+</div>

@@ -1,0 +1,31 @@
+
+
+  <title>JSP Page</title>
+<div id="all">
+          <div id="main" >
+                <center>
+                  <h3>MEMBERS FULL DETAIL</h3>
+                  <table border class="CSSTableGenerator" overflow x>
+                    <tr>
+
+                      <td>name</td>
+                      <td>phone number</td>
+                      <td>email</td>
+                      <td>dateofbirth</td>
+                      <td>gender</td>
+                    </tr>
+                    <% Member.all.each do |member| %>
+                        <tr>
+
+                          <td><%= member.name %></td>
+                          <td><%= member.mobile %></td>
+                          <td><%= member.email %></td>
+                          <td><%= member.date_of_birth %></td>
+                          <td><%= member.gender %></td>
+
+                        </tr>
+                    <%end%>
+                  </table>
+                </center>
+          </div>
+</div>

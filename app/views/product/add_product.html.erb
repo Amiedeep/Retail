@@ -1,0 +1,10 @@
+<%= render partial: 'partials/header' %>
+<div id="all">
+  <% if @type.nil? %>
+      <%= render partial: 'partials/index1' %>
+  <% else %>
+      <%= render partial:'partials/index' %>
+  <% end %>
+
+</div>
+<%= render partial: 'partials/add_product' %>

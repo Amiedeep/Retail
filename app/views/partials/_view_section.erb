@@ -1,0 +1,36 @@
+
+
+
+
+  <title>view sections</title>
+<center>
+
+  <div id="all">
+            <div id="main" >
+
+              <h3 class="heading">SECTIONS LIST</h3>
+              <table border  class="CSSTableGenerator">
+                <tr>
+                  <td>Section Name</td>
+                  <td>Description</td>
+                  <td>Location</td>
+                  <td>Incharge</td>
+                  <td></td>
+                  <td></td>
+                </tr>
+                <% Section.all.each do |section| %>
+                    <tr>
+                      <td><%= section.section_name%></td>
+                      <td><%= section.description%></td>
+                      <td><%= section.location%></td>
+                      <td><%= section.incharge%></td>
+                      <td><a href="EditSection1<%= section.section_name %>">Edit</a></td>
+                      <td><a href="DeleteSection1<%= section.section_name%>">delete</a></td>
+                    </tr>
+                <% end %>
+              </table>
+            </div>
+  </div>
+
+</center>
+

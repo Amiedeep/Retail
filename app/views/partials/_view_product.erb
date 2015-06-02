@@ -1,0 +1,65 @@
+
+  <title>JSP Page</title>
+
+  <script type="text/javascript">
+      function go()
+      {
+          return confirm("ARE YOU SURE TO DELETE?");
+      }
+      function getProducts()
+
+      {
+          var cat = document.getElementById("sel").value;
+          try
+          {
+              xmlhttp = new ActiveXObject("Msxml2.XMLHTTP")  // For Old Microsoft Browsers
+          }
+          catch (e)
+          {
+              try
+              {
+                  xmlhttp = new ActiveXObject("Microsoft.XMLHTTP")  // For Microsoft IE 6.0+
+              }
+              catch (e2)
+              {
+                  xmlhttp = new XMLHttpRequest();        //For Mozilla, Opera Browsers
+              }
+          }
+          xmlhttp.onreadystatechange = getProducts2;
+
+          xmlhttp.open("GET", "/view_products?cat="+cat, true);
+          xmlhttp.send();
+      }
+      function getProducts2()
+      {
+
+          if (xmlhttp.readyState === 4 && xmlhttp.status === 200)
+          {
+              document.getElementById("a1").innerHTML = xmlhttp.responseText;
+
+          }
+      }
+  </script>
+<div id="all">
+          <div id="main">
+            <center>
+              <h class="heading">View Products</h><br><br>
+              <table border="0" style="margin-top: 50">
+                <tr>
+                  <td><b>Search</b></td>
+                  <td>    <select id="sel" class="textsearch">
+                       <% Category.all.each do |category| %>
+                        <option value="<%= category.category_name %>"><%= category.category_name%></option>
+                        <%end%>
+                        </select>
+                        </td>
+                        <td>  <input type="button" value="View" onclick="getProducts()" class="submitstyle"></td>
+                        </tr>
+                        </table>
+                        </center>
+
+                        <div id="a1">
+
+                        </div>
+                        </div>
+                        </div>

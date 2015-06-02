@@ -1,0 +1,36 @@
+
+  <title>view brands</title>
+<script>
+    function go()
+    {
+        return confirm("ARE YOU SURE TO DELETE?");
+    }
+</script>
+<div id="all">
+          <div id="main" >
+            <center>
+              <h3 class="heading">BRANDS LIST</h3>
+              <table border class="CSSTableGenerator">
+                <tr>
+                  <td>BRAND NAME</td>
+                  <td>BRAND DESCRIPTION</td>
+                  <td>LOGO</td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                </tr>
+                <% Brand.all.each do |brand|  %>
+                    <tr>
+                      <td><%= brand.brand_name %></td>
+                      <td><%= brand.brand_description %></td>
+                      <td><%= image_tag "#{brand.brand_pic}", :size => "50x50" %></td>
+                      <td><a href="editbrand1<%= brand.brand_name %>">Edit</a></td>
+                      <td><a href="Deletebrand1<%= brand.brand_name %>" onclick="return go()">delete</a></td>
+                      <td><a href="editlogo<%= brand.brand_name %>">Edit logo</a></td>
+                    </tr>
+                <%end%>
+              </table>
+            </center>
+          </div>
+</div>
+
